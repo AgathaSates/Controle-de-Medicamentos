@@ -3,10 +3,10 @@
 public interface IRepository<T> where T : BaseEntity<T>
 {
     void Add(T newEntity);
-    void Edit(int id, T editedEntity);
-    void Remove(int id);
+    void Edit(Guid id, T editedEntity);
+    void Remove(Guid id);
     List<T> GetAll();
-    T? GetById(int id);
+    T? GetById(Guid id);
     bool IsEntityValid(T entity, out string errors);
     int Count();
 }

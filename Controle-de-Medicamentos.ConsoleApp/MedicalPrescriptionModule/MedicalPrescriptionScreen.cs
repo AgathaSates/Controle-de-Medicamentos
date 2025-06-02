@@ -76,7 +76,15 @@ public class MedicalPrescriptionScreen : BaseScreen<MedicalPrescription>, ICrudS
             {
                 MedicationScreen.ShowAll(false, false);
                 Write.InColor($"> Digite o id do medicamento N°{i + 1}: ", ConsoleColor.Yellow, true);
-                int medicationId = Validator.GetValidInt();
+                string medicationIdInput = Console.ReadLine()!.Trim();
+
+                if (!Guid.TryParse(medicationIdInput, out Guid medicationId))
+                {
+                    Write.InColor(">> (×) ID inválido! Por favor, insira um ID válido.", ConsoleColor.Red);
+                    Write.TryAgain();
+                    continue;
+                }
+
                 Medication? medication = MedicationRepository.GetById(medicationId);
 
                 Write.InColor($"> Digite a dosagem do medicamento N°{i + 1} (Apenas o valor): ", ConsoleColor.Yellow, true);

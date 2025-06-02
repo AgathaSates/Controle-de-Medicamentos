@@ -36,7 +36,7 @@ namespace Controle_de_Medicamentos.ConsoleApp.SupplierModule
             return new Supplier(name, phone, cnpj);
         }
 
-        public override bool CanRemove(int id)
+        public override bool CanRemove(Guid id)
         {
             Supplier supplier = Repository.GetById(id);
             if(MedicationRepository.HasMedicationForSupplier(supplier))

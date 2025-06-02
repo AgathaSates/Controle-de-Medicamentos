@@ -27,7 +27,7 @@ public abstract class BaseRepository<T> where T : BaseEntity<T>
     /// </remarks>
     public virtual void Add(T entity)
     {
-        entity.Id = GetNextAvailableId();
+        entity.Id = Guid.NewGuid();
         List.Add(entity);
         Context.SaveData(); 
     }
@@ -40,7 +40,7 @@ public abstract class BaseRepository<T> where T : BaseEntity<T>
     /// A entidade é localizada com <see cref="GetById(int)"/> e removida da lista.
     /// Após a remoção, a persistência é feita com <see cref="Context.SaveData"/>.
     /// </remarks>
-    public virtual void Remove(int id)
+    public virtual void Remove(Guid id)
     {
         T entity = GetById(id);
         List.Remove(entity);
@@ -56,7 +56,7 @@ public abstract class BaseRepository<T> where T : BaseEntity<T>
     /// A entidade original é obtida com <see cref="GetById(int)"/> e atualizada usando <see cref="UpdateEntity"/>.
     /// Após a modificação, os dados são persistidos com <see cref="Context.SaveData"/>.
     /// </remarks>
-    public virtual void Edit(int id, T editedEntity)
+    public virtual void Edit(Guid id, T editedEntity)
     {
         T entity = GetById(id);
         entity.UpdateEntity(editedEntity);
@@ -77,27 +77,9 @@ public abstract class BaseRepository<T> where T : BaseEntity<T>
     /// </summary>
     /// <param name="id">ID da entidade a ser buscada.</param>
     /// <returns>Objeto da entidade encontrada ou <c>null</c> caso não exista.</returns>
-    public T? GetById(int id)
+    public T? GetById(Guid id)
     {
         return List.FirstOrDefault(targetEntity => targetEntity.Id == id);
-    }
-
-    /// <summary>
-    /// Busca o ID disponível que não esteja presente na lista atual de entidades.<br/>
-    /// Para quando há buracos na sequência de IDs existentes (ex: exclusões).
-    /// </summary>
-    /// <returns>O menor ID disponível que ainda não foi utilizado.</returns>
-    public int GetNextAvailableId()
-    {
-        int id = 1;
-        List<int> usedIds = List.Select(baseEntity => baseEntity.Id).OrderBy(id => id).ToList();
-        foreach (int usedId in usedIds)
-        {
-            if (usedId != id)
-                break;
-            id++;
-        }
-        return id;
     }
 
     /// <summary>

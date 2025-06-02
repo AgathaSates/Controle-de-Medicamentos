@@ -32,7 +32,7 @@ public class EmployeeScreen : BaseScreen<Employee>, ICrudScreen
         return new Employee(name, phoneNumber, cpf);
     }
 
-    public override bool CanRemove(int id)
+    public override bool CanRemove(Guid id)
     {
         Employee employee = Repository.GetById(id);
         if(InRequestRepository.HasRequisitionsForEmployee(employee))

@@ -50,11 +50,11 @@ public class InRequestScreen : BaseScreen<InRequest>, ICrudScreen
     {
         MedicationScreen.ShowAll(false);
         Write.InColor(">> Digite o ID do medicamento desejado: ", ConsoleColor.Yellow, true);
-        int id1 = Validator.GetValidInt();
+        Guid id1 = Guid.Parse(Console.ReadLine());
         Medication? medication = MedicationScreen.FindRegister(id1) ? MedicationScreen.Repository.GetById(id1) : null;
         EmployeeScreen.ShowAll(false);
         Write.InColor(">> Digite o ID do funcionário desejado: ", ConsoleColor.Yellow, true);
-        int id2 = Validator.GetValidInt();
+        Guid id2 = Guid.Parse(Console.ReadLine());
         Employee? employee = EmployeeScreen.FindRegister(id2) ? EmployeeScreen.Repository.GetById(id2) : null;
         Write.InColor(">> Digite a quantidade de medicamentos: ", ConsoleColor.Yellow, true);
         int quantity = Validator.GetValidInt();

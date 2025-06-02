@@ -72,13 +72,28 @@ public class MedicationScreen : BaseScreen<Medication>, ICrudScreen
 
         SupplierScreen.ShowAll(false);
         Write.InColor("> Digite o ID do fornecedor do medicamento: ", ConsoleColor.Yellow, true);
-        int idSuplier = Validator.GetValidInt();
-        Supplier? supplier = SupplierRepository.GetById(idSuplier);
+        string supplierIdInput = Console.ReadLine()!.Trim();
+        Guid idSupplier;
+
+        if (!Guid.TryParse(supplierIdInput, out idSupplier))
+        {
+            Write.InColor(">> (X) ID do fornecedor inválido!", ConsoleColor.Red);
+            Write.Exit();
+            return null;
+        }
+
+        Supplier? supplier = SupplierRepository.GetById(idSupplier);
+        if (supplier == null)
+        {
+            Write.InColor(">> (X) Fornecedor não encontrado!", ConsoleColor.Red);
+            Write.Exit();
+            return null;
+        }
 
         return new Medication(name, description, quantity, supplier);
     }
 
-    public override bool CanRemove(int id)
+    public override bool CanRemove(Guid id)
     {
         Medication medication = Repository.GetById(id);
         if (InRequestRepository.HasRequisitionsForMedication(medication))
@@ -183,7 +198,7 @@ public class MedicationScreen : BaseScreen<Medication>, ICrudScreen
         {
             try
             {
-                int id = csv.GetField<int>("id");
+                Guid id = csv.GetField<Guid>("id");
                 string name = csv.GetField<string>("nome");
                 string description = csv.GetField<string>("descrição");
                 int quantity = csv.GetField<int>("quantidadeemestoque");

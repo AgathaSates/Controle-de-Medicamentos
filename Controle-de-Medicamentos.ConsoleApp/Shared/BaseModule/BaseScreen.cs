@@ -133,7 +133,14 @@ public abstract class BaseScreen<T> where T : BaseEntity<T>
 
         ShowAll(false);
         Write.InColor($">> Digite o ID do {EntityName} que deseja editar: ", ConsoleColor.Yellow, true);
-        int id = Convert.ToInt32(Console.ReadLine());
+        string input = Console.ReadLine();
+
+        if (!Guid.TryParse(input, out Guid id))
+        {
+            Write.InColor($">> (×) ID inválido!", ConsoleColor.Red);
+            Write.Exit();
+            return;
+        }
 
         if (!FindRegister(id))
             return;
@@ -177,7 +184,14 @@ public abstract class BaseScreen<T> where T : BaseEntity<T>
 
         ShowAll(false);
         Write.InColor($">> Digite o ID do {EntityName} que deseja remover: ", ConsoleColor.Yellow, true);
-        int id = Convert.ToInt32(Console.ReadLine());
+        string input = Console.ReadLine();
+
+        if (!Guid.TryParse(input, out Guid id))
+        {
+            Write.InColor($">> (×) ID inválido!", ConsoleColor.Red);
+            Write.Exit();
+            return;
+        }
 
         if (!FindRegister(id))
             return;
@@ -208,7 +222,7 @@ public abstract class BaseScreen<T> where T : BaseEntity<T>
     /// Este método pode ser sobrescrito nas telas específicas para aplicar regras de negócio.
     /// Exemplo: impedir exclusão de medicamentos com requisições vinculadas, ou fornecedores vinculados a medicamentos.
     /// </remarks>
-    public virtual bool CanRemove(int id)
+    public virtual bool CanRemove(Guid id)
     {
         return true;
     }
@@ -378,7 +392,7 @@ public abstract class BaseScreen<T> where T : BaseEntity<T>
     /// <returns>
     /// Retorna <c>true</c> se o registro for encontrado; caso contrário, exibe uma mensagem de erro e retorna <c>false</c>.
     /// </returns>
-    public bool FindRegister(int id)
+    public bool FindRegister(Guid id)
     {
         if (Repository.GetById(id) == null)
             return false;

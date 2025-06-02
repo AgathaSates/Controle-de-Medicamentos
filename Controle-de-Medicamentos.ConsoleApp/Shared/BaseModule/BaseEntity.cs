@@ -2,7 +2,7 @@
 
 public abstract class BaseEntity<T>
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     /// <summary>
     /// Atualiza os dados da entidade com base nas informações fornecidas pelo usuário.

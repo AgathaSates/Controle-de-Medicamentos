@@ -70,11 +70,22 @@ public class OutRequestScreen : BaseScreen<OutRequest>, ICrudScreen
     {
         PatientScreen.ShowAll(false);
         Write.InColor(">> Digite o ID do paciente desejado: ", ConsoleColor.Yellow, true);
-        int id1 = Validator.GetValidInt();
+        Guid id1;
+        if (!Guid.TryParse(Console.ReadLine(), out id1))
+        {
+            Write.InColor(">> (X) ID inválido! Certifique-se de que o ID está no formato correto.", ConsoleColor.Red);
+            return null;
+        }
         Patient? patient = PatientScreen.FindRegister(id1) ? PatientScreen.Repository.GetById(id1) : null;
+
         MedicalPrescriptionScreen.ShowAll(false);
         Write.InColor(">> Digite o ID da prescrição médica desejada: ", ConsoleColor.Yellow, true);
-        int id2 = Validator.GetValidInt();
+        Guid id2;
+        if (!Guid.TryParse(Console.ReadLine(), out id2))
+        {
+            Write.InColor(">> (X) ID inválido! Certifique-se de que o ID está no formato correto.", ConsoleColor.Red);
+            return null;
+        }
         MedicalPrescription? medicalPrescription = MedicalPrescriptionScreen.FindRegister(id2) ? MedicalPrescriptionScreen.Repository.GetById(id2) : null;
 
         return new OutRequest(patient, medicalPrescription);
@@ -95,7 +106,14 @@ public class OutRequestScreen : BaseScreen<OutRequest>, ICrudScreen
             return;
         PatientScreen.ShowAll(false);
         Write.InColor(">> Digite o ID do paciente desejado: ", ConsoleColor.Yellow, true);
-        int id = Validator.GetValidInt();
+        string input = Console.ReadLine();
+        Guid id;
+        if (!Guid.TryParse(input, out id))
+        {
+            Write.InColor(">> (X) ID inválido! Certifique-se de que o ID está no formato correto.", ConsoleColor.Red);
+            Write.Exit();
+            return;
+        }
         Patient? patient = PatientScreen.FindRegister(id) ? PatientScreen.Repository.GetById(id) : null;
         Console.Clear();
 
