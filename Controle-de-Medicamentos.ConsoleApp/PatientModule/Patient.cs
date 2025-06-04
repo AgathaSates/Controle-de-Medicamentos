@@ -4,7 +4,7 @@ using Controle_de_Medicamentos.ConsoleApp.SupplierModule;
 
 namespace Controle_de_Medicamentos.ConsoleApp.PatientModule
 {
-    public class Patient : BaseEntity<Patient>, ITableConvertible
+    public class Patient : BaseEntity<Patient>
     {
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
@@ -50,11 +50,6 @@ namespace Controle_de_Medicamentos.ConsoleApp.PatientModule
                 erros += "O 'Cartão do SUS' deve ter 15 dígitos\n";
 
             return erros;
-        }
-
-        public string[] ToLineStrings()
-        {
-            return new string[] { Id.ToString(), Name, PhoneNumber, SUSCard };
         }
 
         /// <summary>

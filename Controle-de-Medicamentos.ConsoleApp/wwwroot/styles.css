@@ -1,0 +1,149 @@
+﻿:root {
+    --background-1: #1e1e1e;
+    --background-2: #2c2c2e;
+    --background-hover: #3d3d42;
+    --primary-color: #43A047;
+    --border: #3a3a3c;
+    --text-color: #C6C7CE;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-1);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 240px;
+    background-color: var(--background-2);
+    animation: slide-in 0.8s ease-out forwards;
+    border: 1px solid var(--border);
+}
+
+    nav > h2 {
+        margin: 0;
+    }
+
+    nav > ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+        padding-left: 0;
+        list-style: none;
+    }
+
+header {
+    padding: 0 200px;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 29px
+}
+
+main {
+    display: flex;
+    padding: 0 200px;
+    margin-bottom: 40px;
+}
+
+.layout-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.icon-logo {
+    margin-right: 10px;
+}
+
+.title-navbar {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navigation-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .navigation-link:hover {
+        background-color: #388E3C;
+        color: var(--text-color);
+    }
+
+.footer {
+    text-align: center;
+    background-color: var(--background-2);
+    color: #aaa;
+    margin-top: auto;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.footer-divider {
+    border: none;
+    margin-bottom: 15px;
+}
+
+.footer-content a {
+    color: var(--primary-color);
+    margin: 0 5px;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+    .footer-content a:hover {
+        text-decoration: underline;
+    }
+
+.footer i {
+    margin-right: 5px;
+}
+
+.card-icon {
+    font-size: 68px;
+    color: #4F4F4F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px;
+        justify-content: center;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}

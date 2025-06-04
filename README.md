@@ -5,7 +5,7 @@
 
 # 📌 Demonstração
  Navegações e cadastros
->![Demonstração do Projeto](https://i.imgur.com/WrLEsbs.gif)
+>![Demonstração do Projeto]()
 
 # 💡 Índice
 
@@ -13,7 +13,6 @@
 - [Introdução](#-introdução)
 - [Funcionalidades](#-funcionalidades)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Arquivos Relacionados](#-arquivos-relacionados)
 - [Tecnologias Usadas](#-tecnologias-usadas)
 - [Commits e Convenções](#-commits-e-convenções)
 - [Como Usar](#-como-usar)
@@ -30,11 +29,9 @@ O **Controle de Medicamentos** é uma aplicação de console desenvolvida em C# 
 
 # ✨ Funcionalidades
 
-- 💾 **Persistência via JSON** – Todos os dados são armazenados de forma local e persistente.
 - 🗂️ **Gerenciamento Completo de Registros** – Cadastro, edição, exclusão e listagem de pacientes, medicamentos, funcionários, fornecedores, requisições e prescrições médicas.
 - 📥📤 **Controle de Estoque** – Registra entradas e saídas de medicamentos com rastreamento por funcionário e paciente.
 - 🧾 **Validações de Entrada** – Campos obrigatórios, tipos e formatos verificados para garantir consistência dos dados.
-- 🎛️ **Menu Interativo com Teclado** – Navegação fluida com setas e seleção por Enter, sem necessidade de digitar números.
 - 📊 **Listagens com Destaques Visuais** – Interface colorida destaca status como “Em falta”, “Ok”, “Aberta” ou “Expirada”.
 
 
@@ -54,23 +51,15 @@ Exemplo de organização:
 - 📁 `BaseModule/`
   - `BaseEntity.cs` – Entidade abstrata com propriedades comuns.
   - `BaseRepository.cs` – Repositório genérico com lógica comum para leitura e gravação em JSON, utilizado por todos os repositórios específicos.
-  - `BaseScreen.cs` – Tela base com estrutura de menu e exibição reutilizada por outros módulos.
 
   
 - 📁 `PatientModule/`
   - `Patient.cs` – Entidade com os dados do paciente.
   - `PatientRepository.cs` – Repositório que herda de `BaseRepository`.
-  - `PatientScreen.cs` – Tela com opções para gerenciar pacientes.
 
 - 📁 `Program.cs` – Ponto de entrada principal. Inicializa o menu principal e roteia para os módulos.
 
 Essa divisão modular, com herança de comportamentos comuns, torna o projeto **escalável, reutilizável e fácil de manter**.
-
-# 📁 Arquivos Relacionados
-
-- [📄 Documento de Requisitos](https://github.com/Code-Oblivion/Controle-de-Medicamentos/blob/master/Controle-de-Medicamentos.ConsoleApp/docs/Revisado%20-%20Controle%20de%20Medicamentos%20-%202025.pdf)
-- [🧠 Diagrama de Classes](https://github.com/Code-Oblivion/Controle-de-Medicamentos/blob/master/Controle-de-Medicamentos.ConsoleApp/docs/diagram.png)
-- [🗺️ Organização](https://github.com/Code-Oblivion/Controle-de-Medicamentos/blob/master/Controle-de-Medicamentos.ConsoleApp/docs/organizacao.png)
 
 # 🔧 Tecnologias usadas
 
@@ -121,21 +110,12 @@ dotnet run
   <a href="https://github.com/AgathaSates">
     <img src="https://github.com/AgathaSates.png" width="100" style="border-radius: 50%;" alt="Tiago Santini"/>
   </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/otaviobrignoni">
-    <img src="https://github.com/otaviobrignoni.png" width="100" style="border-radius: 50%;" alt="Alexandre Rech"/>
-  </a>
-    &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/AlexAraldi">
-    <img src="https://github.com/AlexAraldi.png" width="100" style="border-radius: 50%;" alt="Alexandre Rech"/>
-  </a>
-</p>
+ 
 
 | Nome | GitHub |
 |------|--------|
 | Agatha Sates | [@AgathaSates](https://github.com/AgathaSates) |
-| Otavio Brignoni | [@Otavio Brignoni](https://github.com/otaviobrignoni) |
-| Alexander Araldi | [@Alexander Araldi](https://github.com/AlexAraldi) |
+
 
 # 👨‍🏫 Mentores
 

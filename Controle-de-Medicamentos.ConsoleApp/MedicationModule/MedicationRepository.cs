@@ -20,6 +20,7 @@ public class MedicationRepository : BaseRepository<Medication>, IMedicationRepos
             Context.SaveData();
             return;
         }
+
         entity.Id = Guid.NewGuid();
         List.Add(entity);
         Context.SaveData();

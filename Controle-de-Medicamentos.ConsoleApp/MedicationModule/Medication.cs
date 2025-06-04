@@ -2,7 +2,7 @@
 using Controle_de_Medicamentos.ConsoleApp.SupplierModule;
 namespace Controle_de_Medicamentos.ConsoleApp.MedicationModule;
 
-public class Medication : BaseEntity<Medication>, ITableConvertible
+public class Medication : BaseEntity<Medication>
 {
     public string Name {get; set; }
     public string Description { get; set; }
@@ -51,11 +51,6 @@ public class Medication : BaseEntity<Medication>, ITableConvertible
             erros += "O Campo 'Fornecedor' é obrigatório\n";
 
         return erros;
-    }
-
-    public string[] ToLineStrings()
-    {
-        return new string[] { Id.ToString(), Name, Description, Quantity.ToString(), Supplier.Name, IsStockLow() ? "Em Falta" : "Ok" };
     }
 
     /// <summary>

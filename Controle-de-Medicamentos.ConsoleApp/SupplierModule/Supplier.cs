@@ -3,7 +3,7 @@ using Controle_de_Medicamentos.ConsoleApp.Shared.BaseModule;
 
 namespace Controle_de_Medicamentos.ConsoleApp.SupplierModule;
 
-public class Supplier : BaseEntity<Supplier>, ITableConvertible
+public class Supplier : BaseEntity<Supplier>
 {
     public string Name { get; set; }
     public string PhoneNumber { get; set; }
@@ -49,11 +49,6 @@ public class Supplier : BaseEntity<Supplier>, ITableConvertible
             erros += "O 'CNPJ' deve ter 14 dígitos\n";
 
         return erros;
-    }
-
-    public string[] ToLineStrings()
-    {
-        return new string[] { Id.ToString(), Name, PhoneNumber, CNPJ };
     }
 
     /// <summary>

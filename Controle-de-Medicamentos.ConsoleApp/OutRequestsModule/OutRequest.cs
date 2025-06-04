@@ -3,7 +3,7 @@ using Controle_de_Medicamentos.ConsoleApp.PatientModule;
 using Controle_de_Medicamentos.ConsoleApp.Shared.BaseModule;
 
 namespace Controle_de_Medicamentos.ConsoleApp.OutRequestsModule;
-public class OutRequest : BaseEntity<OutRequest>, ITableConvertible
+public class OutRequest : BaseEntity<OutRequest>
 {
     public DateTime Date { get; set; }
     public Patient Patient { get; set; }
@@ -22,11 +22,6 @@ public class OutRequest : BaseEntity<OutRequest>, ITableConvertible
         Id = entity.Id;
         Patient = entity.Patient;
         MedicalPrescription = entity.MedicalPrescription;
-    }
-
-    public string[] ToLineStrings()
-    {
-        return new string[] { Id.ToString(), Date.ToString("dd/MM/yyyy"), Patient.Name, MedicalPrescription.Id.ToString() };
     }
 
     public override string Validate()
