@@ -18,7 +18,6 @@ public class SupplierController : Controller
         _supplierRepository = new SupplierRepository(_context);
     }
 
-
     public IActionResult Index()
     {
         return View();

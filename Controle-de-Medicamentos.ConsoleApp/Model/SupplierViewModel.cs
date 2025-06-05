@@ -62,19 +62,19 @@ public class ViewSupplierViewModel
             Registers.Add(detailVM);
         }
     }
+}
 
-    public class DetailSupplierViewModel
+public class DetailSupplierViewModel
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Phone { get; set; }
+    public string CNPJ { get; set; }
+    public DetailSupplierViewModel(Guid id, string name, string phone, string cnpj)
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string CNPJ { get; set; }
-        public DetailSupplierViewModel(Guid id, string name, string phone, string cnpj)
-        {
-            Id = id;
-            Name = name;
-            Phone = phone;
-            CNPJ = cnpj;
-        }
-    } 
+        Id = id;
+        Name = name;
+        Phone = phone;
+        CNPJ = cnpj;
+    }
 }

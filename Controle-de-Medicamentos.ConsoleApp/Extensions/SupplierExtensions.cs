@@ -1,6 +1,5 @@
 ﻿using Controle_de_Medicamentos.ConsoleApp.Model;
 using Controle_de_Medicamentos.ConsoleApp.SupplierModule;
-using static Controle_de_Medicamentos.ConsoleApp.Model.ViewSupplierViewModel;
 
 namespace Controle_de_Medicamentos.ConsoleApp.Extensions;
 
