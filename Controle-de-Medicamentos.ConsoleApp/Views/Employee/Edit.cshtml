@@ -1,0 +1,37 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model EditEmployeeViewModel;
+@{
+    ViewBag.Title = "Editar Funcionario";
+    ViewBag.Header = "Edição de Funcionário";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+    <form action="/funcionarios/editar @Model.Id" method="post">
+        <label for="name">Nome do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" name="name" value="@Model.Name" />
+        </div>
+
+        <label for="phone">Telefone do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+            <input type="text" name="phone" value="@Model.Phone" />
+        </div>
+
+        <label for="cpf">CPF do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-id-card"></i>
+            <input type="text" name="cpf" value="@Model.CPF" />
+        </div>
+
+        <div class="interaction-buttons">
+            <a type="button" id="btnback" href="/funcionarios/visualizar">Voltar</a>
+            <button type="submit" id="btnConfirm">Salvar</button>
+        </div>
+    </form>
+
+</main>

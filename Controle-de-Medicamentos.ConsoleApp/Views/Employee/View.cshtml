@@ -1,0 +1,23 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model ViewEmployeeViewModel;
+@{
+    ViewBag.Title = "Visualizar Funcionario";
+    ViewBag.Header = "Visualizando Funcionário";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+    @foreach (var e in Model.Registers)
+    {
+        <div class="card-module">
+            <h1>@e.Name</h1>
+            <p><strong>Telefone:</strong> @e.Phone</p>
+            <p><strong>CPF:</strong> @e.CPF</p>
+            <div class="interaction-buttons">
+                <a type="button" id="btn-Edit" href="/funcionarios/editar @e.Id">Editar</a>
+                <a type="button" id="btn-Delete" href="/funcionarios/excluir @e.Id">Excluir</a>
+            </div>
+        </div>
+    }
+</main>

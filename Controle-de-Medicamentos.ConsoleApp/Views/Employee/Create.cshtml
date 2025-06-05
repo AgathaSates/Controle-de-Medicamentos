@@ -1,0 +1,37 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreateEmployeeViewModel;
+@{
+    ViewBag.Title = "Cadastrar Funcionario";
+    ViewBag.Header = "Cadastrando Funcionário";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+
+    <form action="/Funcionarios/cadastrar" method="post">
+        <label for="name">Nome do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" name="name" />
+        </div>
+
+        <label for="phone">Telefone do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+            <input type="text" name="phone" />
+        </div>
+
+        <label for="cpf">CPF do Funcionário:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-id-card"></i>
+            <input type="text" name="cpf" />
+        </div>
+
+        <div class="interaction-buttons">
+            <a type="button" id="btnback" href="/Funcionarios">Voltar</a>
+            <button type="submit" id="btnConfirm">Salvar</button>
+        </div>
+    </form>
+</main>
