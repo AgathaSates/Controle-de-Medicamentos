@@ -1,0 +1,23 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model ViewSupplierViewModel;
+@{
+	ViewBag.Title= "Visualizar Fornecedor";
+	ViewBag.Header = "Visualizando Fornecedores";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	@foreach (var s in Model.Registers)
+	{
+         <div class="card-module">
+            <h1>@s.Name</h1>
+            <p><strong>Telefone:</strong> @s.Phone</p>
+            <p><strong>CNPJ:</strong> @s.CNPJ</p>
+            <div class="interaction-buttons">
+                <a type="button" id="btn-Edit" href="/fornecedores/editar @s.Id">Editar</a>
+                <a type="button" id="btn-Delete" href="/fornecedores/excluir @s.Id">Excluir</a>
+            </div>
+        </div>
+	}
+</main>

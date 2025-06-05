@@ -1,0 +1,37 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model EditSupplierViewModel;
+@{
+	ViewBag.Title = "Editar Fornecedor";
+	ViewBag.Header = "Edição de Fornecedor";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+    <form action="/fornecedores/editar @Model.Id" method="post">
+        <label for="name">Nome do Fornecedor:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" name="name" value="@Model.Name" />
+        </div>
+
+        <label for="phone">Telefone do Fornecedor:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+            <input type="text" name="phone" value="@Model.Phone" />
+        </div>
+
+        <label for="cnpj">CNPJ do Fornecedor:</label>
+        <div class="input-wrapper">
+            <i class="fas fa-id-card"></i>
+            <input type="text" name="cnpj" value="@Model.CNPJ" />
+        </div>
+
+        <div class="interaction-buttons">
+            <a type="button" id="btnback" href="/fornecedores/visualizar">Voltar</a>
+            <button type="submit" id="btnConfirm">Salvar</button>
+        </div>
+    </form>
+
+</main>
