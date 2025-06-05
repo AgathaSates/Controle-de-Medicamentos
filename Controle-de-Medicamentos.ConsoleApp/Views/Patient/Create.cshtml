@@ -1,0 +1,33 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreatePatientViewModel;
+@{
+	ViewBag.Title = "Cadastrar Paciente";
+	ViewBag.Header = "Cadastrando Paciente";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+	<form action="/pacientes/cadastrar" method="post">
+		<label for="name">Nome do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-user"></i>
+			<input type="text" name="name" />
+		</div>
+		<label for="phone">Telefone do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-phone"></i>
+			<input type="text" name="phone" />
+		</div>
+		<label for="suscard">SUSCARD do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-id-card"></i>
+			<input type="text" name="suscard" />
+		</div>
+		<div class="interaction-buttons">
+			<a type="button" id="btnback" href="/pacientes">Voltar</a>
+			<button type="submit" id="btnConfirm">Salvar</button>
+		</div>
+	</form>
+</main>

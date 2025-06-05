@@ -1,0 +1,33 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model EditPatientViewModel;
+@{
+	ViewBag.Title = "Editar Paciente";
+	ViewBag.Header = "Edição de Paciente";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+	<form action="/pacientes/editar @Model.Id" method="post">
+		<label for="name">Nome do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-user"></i>
+			<input type="text" name="name" value="@Model.Name" />
+		</div>
+		<label for="phone">Telefone do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-phone"></i>
+			<input type="text" name="phone" value="@Model.Phone" />
+		</div>
+		<label for="suscard">SUSCARD do Paciente:</label>
+		<div class="input-wrapper">
+			<i class="fas fa-id-card"></i>
+			<input type="text" name="suscard" value="@Model.SUSCard" />
+		</div>
+		<div class="interaction-buttons">
+			<a type="button" id="btnback" href="/pacientes/visualizar">Voltar</a>
+			<button type="submit" id="btnConfirm">Salvar</button>
+		</div>
+	</form>
+</main>
