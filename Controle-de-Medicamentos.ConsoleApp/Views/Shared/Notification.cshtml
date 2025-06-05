@@ -1,1 +1,17 @@
-﻿
+﻿@model Controle_de_Medicamentos.ConsoleApp.Model.NotificationViewModel
+@{
+	ViewData["Title"] = "Notificação";
+}
+
+<link href="~/Notification.css" rel="stylesheet" />
+
+<main>
+	<div class="card-sucess-notification">
+		<div class="icon-wrapper">
+			<div class="icon-check">&#10003;</div>
+		</div>
+		<h2>@Model.TitleAction com sucesso!</h2>
+		<p>@Model.RegisterType "@Model.RegisterName" foi @Model.Action.</p>
+		<a href="@Model.Linkdestination" class="btn-back">Voltar</a>
+	</div>
+</main>

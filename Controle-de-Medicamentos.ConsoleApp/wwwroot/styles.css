@@ -29,13 +29,16 @@ nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 240px;
     background-color: var(--background-2);
-    animation: slide-in 0.8s ease-out forwards;
     border: 1px solid var(--border);
+    gap: 1rem;
 }
 
+    nav a {
+        min-width: 100px;
+    }
     nav > h2 {
         margin: 0;
     }
@@ -67,10 +70,6 @@ main {
     display: flex;
     flex-direction: column;
     padding-bottom: 40px;
-}
-
-.icon-logo {
-    margin-right: 10px;
 }
 
 .title-navbar {
@@ -131,19 +130,42 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
-@media (max-width: 768px) {
-    nav {
-        padding: 20px;
+.interaction-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+    .interaction-buttons > a {
+        display: flex;
         justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 30px;
+        border: 1px solid var(--cor-principal);
+        border-radius: 9px;
+        background-color: var(--cor-principal);
+        color: var(--cor-texto);
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
     }
 
-    header {
-        padding: 20px;
-    }
+#btn-Edit {
+    background-color: #27ae60;
+    border: 1px solid #27ae60;
+}
 
-    main {
-        padding: 20px;
+#btn-Delete {
+    background-color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+@media (max-width: 768px) {
+    nav, header, main {
+        padding: 1.3rem !important;
+        font-size: 1rem !important;
     }
 }

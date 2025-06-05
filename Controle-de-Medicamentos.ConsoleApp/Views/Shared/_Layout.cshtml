@@ -3,35 +3,33 @@
 <head>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <link href="~/keyframes.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <link href="~/styles.css" rel="stylesheet" />
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>@ViewBag.Title</title>
 
 </head>
 <body>
 	<div class="layout-wrapper">
-		<nav>
-
-			<i class="fas fa-house-medical icon-logo"></i>
+		<nav class="animate__animated animate__slideInDown">
 
 			<ul>
 				<li><a class="navigation-link" href="/"><i class="fas fa-home"></i> Página Inicial</a></li>
-				<li><a class="navigation-link"><i class="fas fa-truck"></i> Fornecedores</a></li>
-				<li><a class="navigation-link"><i class="fas fa-users"></i> Funcionários</a></li>
-				<li><a class="navigation-link"><i class="fas fa-user-injured"></i> Pacientes</a></li>
-				<li><a class="navigation-link"><i class="fas fa-pills"></i> Medicamentos</a></li>
-				<li><a class="navigation-link"><i class="fas fa-notes-medical"></i> Prescrição Médica</a></li>
-				<li><a class="navigation-link"><i class="fas fa-file-alt"></i> Requisições</a></li>
+				<li><a class="navigation-link" href="/fornecedores"><i class="fas fa-truck"></i> Fornecedores</a></li>
+				<li><a class="navigation-link" href="/"><i class="fas fa-users"></i> Funcionários</a></li>
+				<li><a class="navigation-link" href="/"><i class="fas fa-user-injured"></i> Pacientes</a></li>
+				<li><a class="navigation-link" href="/"><i class="fas fa-pills"></i> Medicamentos</a></li>
+				<li><a class="navigation-link" href="/"><i class="fas fa-notes-medical"></i> Prescrição Médica</a></li>
+				<li><a class="navigation-link" href="/"><i class="fas fa-file-alt"></i> Requisições</a></li>
 
 			</ul>
 
 		</nav>
 
-		<header>
+		<header class="animate__animated animate__zoomIn">
 			<h2>@ViewBag.Header</h2>
 		</header>
 
