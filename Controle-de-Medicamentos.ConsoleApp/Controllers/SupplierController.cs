@@ -44,7 +44,7 @@ public class SupplierController : Controller
         return View("Notification", notification);
     }
 
-    [HttpGet("editar{id:guid}")]
+    [HttpGet("editar/{id:guid}")]
     public IActionResult Edit([FromRoute] Guid id)
     {
         var selectedRegister = _supplierRepository.GetById(id);
@@ -55,19 +55,19 @@ public class SupplierController : Controller
         return View(editVM);
     }
 
-    [HttpPost("editar{id:guid}")]
+    [HttpPost("editar/{id:guid}")]
     public IActionResult Edit([FromRoute] Guid id, EditSupplierViewModel editVM)
     {
         var updatedRegister = editVM.ForEntity();
 
         _supplierRepository.Edit(id, updatedRegister);
 
-        var notification = new NotificationViewModel("Atualizado", "Fornecedor", updatedRegister.Name, "editado", "visualizar");
+        var notification = new NotificationViewModel("Atualizado", "Fornecedor", updatedRegister.Name, "editado", "/fornecedores");
 
         return View("Notification", notification); 
     }
 
-    [HttpGet("excluir{id:guid}")]
+    [HttpGet("excluir/{id:guid}")]
     public IActionResult Delete([FromRoute] Guid id)
     {
         var selectedRegister = _supplierRepository.GetById(id);
@@ -77,12 +77,12 @@ public class SupplierController : Controller
         return View("Delete", deleteVM);
     }
 
-    [HttpPost("excluir{id:guid}")]
+    [HttpPost("excluir/{id:guid}")]
     public IActionResult Deleted([FromRoute] Guid id)
     {
         var selectedRegister = _supplierRepository.GetById(id);
 
-        var notification = new NotificationViewModel("Removido", "Fornecedor", selectedRegister.Name, "excluído", "visualizar");
+        var notification = new NotificationViewModel("Removido", "Fornecedor", selectedRegister.Name, "excluído", "/fornecedores");
 
         _supplierRepository.Remove(id);
 

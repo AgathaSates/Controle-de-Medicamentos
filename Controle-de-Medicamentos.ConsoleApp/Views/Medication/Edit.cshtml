@@ -1,0 +1,35 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model EditMedicationViewModel;
+@{
+	ViewBag.Title = "Editar Medicamento";
+	ViewBag.Header = "Edição de Medicamento";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+	<form action="/medicamentos/editar/@Model.ID" method="post">
+		<label for="name">Nome do Medicamento:</label>
+		<div class="input-wrapper">
+			<i class="fa-solid fa-capsules"></i>
+			<input type="text" name="name" value="@Model.Name" />
+		</div>
+		<label for="description">Descrição do Medicamento:</label>
+		<div class="input-wrapper">
+			<textarea name="description" id="description">@Model.Description</textarea>
+		</div>
+		<label for="SupplierID">Fornecedor do Medicamento:</label>
+		<select name="SupplierID" id="SupplierID">
+			@foreach (var f in Model.Suppliers)
+			{
+				<option value="@f.ID" @(f.ID == Model.SupplierID ? "selected" : "")>@f.Name</option>
+			}
+		</select>
+
+		<div class="interaction-buttons">
+			<a type="button" id="btnback" href="/medicamentos/visualizar">Voltar</a>
+			<button type="submit" id="btnConfirm">Salvar</button>
+		</div>
+	</form>
+</main>

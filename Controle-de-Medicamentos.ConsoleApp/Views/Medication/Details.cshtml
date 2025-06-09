@@ -1,0 +1,31 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model DetailsMedicationViewModel;
+@{
+	ViewBag.Title = "Visualizar medicamento";
+	ViewBag.Header = "Visualizando medicamento";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module">
+	<div class="card-detail">
+		<h1>@Model.Name</h1>
+		<p><strong>Descrição:</strong> @Model.Description</p>
+		<p><strong>Fornecedor:</strong> @Model.SupplierName</p>
+		<p><strong>Qtd. em Estoque:</strong> @Model.QuantityInStock</p>
+
+		@if (@Model.OutOfStock)
+		{
+			<div class="alert animate__animated animate__heartBeat animate__infinite">
+				<strong>Medicamento em falta!</strong>
+			</div>
+		}
+
+		<div class="interaction-buttons">
+			<a type="button" id="btn-stock" href="">Adicionar</a> 
+			<a type="button" id="btn-Edit" href="/medicamentos/editar @Model.Id">Editar</a>
+			<a type="button" id="btn-Delete" href="/medicamentos/excluir @Model.Id">Excluir</a>
+		</div>
+
+	</div>
+</main>

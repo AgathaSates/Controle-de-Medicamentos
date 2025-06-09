@@ -1,0 +1,23 @@
+﻿@{
+	ViewBag.Title = "Prescrição";
+	ViewBag.Header = "Gerenciamento de Prescrições";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	<a href="/prescricao/cadastrar">
+		<div class="card-module">
+			<h1>Cadastrar</h1>
+			<p>Cadastre novas Prescrições</p>
+			<i class="fas fa-plus fa-beat card-icon"></i>
+		</div>
+	</a>
+	<a href="/prescricao/visualizar">
+		<div class="card-module">
+			<h1>Visualizar</h1>
+			<p>Visualizar todos as Prescrições</p>
+			<i class="fas fa-eye fa-flip card-icon" style="--fa-animation-duration: 3s;"></i>
+		</div>
+	</a>
+</main>

@@ -1,8 +1,8 @@
 ﻿@using Controle_de_Medicamentos.ConsoleApp.Model
-@model DeleteSupplierViewModel;
+@model DeleteMedicationViewModel;
 @{
-	ViewBag.Title = "Excluir Fornecedor";
-	ViewBag.Header = "Exclusão de Fornecedor";
+	ViewBag.Title = "Excluir Medicamento";
+	ViewBag.Header = "Exclusão de Medicamento";
 }
 
 <link href="~/simple-modules.css" rel="stylesheet" />
@@ -11,19 +11,15 @@
 
 
 <main class="main-module">
-
-	<form action="/fornecedores/excluir/@Model.Id" method="post" class="card-delete">
+	<form action="/medicamentos/excluir @Model.Id" method="post" class="card-delete">
 		<div class="icon-wrapper">
 			<div class="icon-warning">&#9888;</div>
 		</div>
-
 		<h2>Atenção!</h2>
 		<p>Você está prestes a excluir "@Model.Name". Essa ação é permanente e não poderá ser desfeita.</p>
-
 		<div class="interaction-buttons">
-			<a type="button" id="btnback" href="/fornecedores/visualizar">Voltar</a>
+			<a type="button" id="btnback" href="/medicamentos/visualizar">Voltar</a>
 			<button type="submit" id="btnConfirm">Excluir</button>
 		</div>
 	</form>
-	
 </main>

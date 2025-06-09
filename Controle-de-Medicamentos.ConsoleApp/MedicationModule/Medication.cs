@@ -11,20 +11,17 @@ public class Medication : BaseEntity<Medication>
 
     public Medication(){}
 
-    public Medication(string name, string description, int quantity, Supplier supplier)
+    public Medication(string name, string description, Supplier supplier)
     {
         Name = name;
         Description = description;
-        Quantity = quantity;
         Supplier = supplier;
     }
 
     public override void UpdateEntity(Medication entity)
     {
-        Id = entity.Id;
         Name = entity.Name;
         Description = entity.Description;
-        Quantity = entity.Quantity;
         Supplier = entity.Supplier;
     }
 

@@ -1,83 +1,38 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
+using Controle_de_Medicamentos.ConsoleApp.PatientModule;
 using Controle_de_Medicamentos.ConsoleApp.Shared.BaseModule;
 
 namespace Controle_de_Medicamentos.ConsoleApp.MedicalPrescriptionModule;
 
 public class MedicalPrescription : BaseEntity<MedicalPrescription>
 {
+    public Guid Id { get; set; }
     public string DoctorCRM { get; set; }
     public DateTime Date { get; set; }
+    public Patient Patient { get; set; }
     public List<PrescriptionMedication> Medications { get; set; }
-    public string Status { get; set; } = "Aberta";
 
+    [ExcludeFromCodeCoverage]
     public MedicalPrescription() { }
 
-    public MedicalPrescription(string doctorCRM, List<PrescriptionMedication> medications)
+    public MedicalPrescription(string doctorCRM, Patient patient, List<PrescriptionMedication> medications)
     {
+        Id = Guid.NewGuid();
         DoctorCRM = doctorCRM;
         Date = DateTime.Now;
+        Patient = patient;
         Medications = medications;
     }
 
     public override void UpdateEntity(MedicalPrescription entity)
     {
-        Id = entity.Id;
-        DoctorCRM = entity.DoctorCRM;
-        Date = DateTime.Now;
-        Medications = entity.Medications;
+        throw new NotImplementedException();
     }
 
     public override string Validate()
     {
-        string errors = "";
-
-        if (string.IsNullOrEmpty(DoctorCRM))
-            errors += "O Campo 'CRM do médico' é obrigatório\n";
-
-        if (!Regex.IsMatch(DoctorCRM, @"^\d{6}$"))
-            errors += "O 'CRM do médico' deve conter 6 dígitos\n";
-
-        if (Medications == null || Medications.Count == 0)
-            errors += "A receita deve conter pelo menos um 'medicamento'\n";
-
-        return errors;
-    }
-
-    /// <summary>
-    /// Verifica se a prescrição médica é válida conforme as regras de negócio definidas.
-    /// </summary>
-    /// <returns>
-    /// Retorna <c>true</c> se a prescrição atender aos critérios; caso contrário, <c>false</c>.
-    /// </returns>
-    public bool IsValid()
-    {
-        if (IsClosed() && IsExpired())
-            return false;
-        return true;
-    }
-
-    /// <summary>Define o status da prescrição como "Fechada".</summary>
-    public void ClosePrescription()
-    {
-        Status = "Fechada";
-    }
-
-    /// <summary>Define o status da prescrição como "Expirada", se estiver vencida.</summary>
-    public void SetExpired()
-    {
-        if (IsExpired())
-            Status = "Expirada";
-    }
-
-    /// <summary>Verifica se a prescrição está expirada (mais de 30 dias).</summary>
-    private bool IsExpired()
-    {
-        return (DateTime.Now - Date).TotalDays > 30;
-    }
-
-    /// <summary>Verifica se a prescrição está com status "Fechada".</summary>
-    private bool IsClosed()
-    {
-        return Status == "Fechada";
+        throw new NotImplementedException();
     }
 }
+

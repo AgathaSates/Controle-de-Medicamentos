@@ -1,0 +1,34 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreateMedicationViewModel;
+@{
+	ViewBag.Title = "Cadastrar Medicamento";
+	ViewBag.Header = "Cadastrando Medicamento";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+	<form action="/medicamentos/cadastrar" method="post">
+		<label for="name">Nome do medicamento:</label>
+		<div class="input-wrapper">
+			<i class="fa-solid fa-capsules"></i>
+			<input type="text" name="name" />
+		</div>
+		<label for="description">Descrição do Medicamento:</label>
+		<div class="input-wrapper">
+			<textarea name="description" id="description"></textarea>
+		</div>
+		<label for="SupplierID">Fornecedor do Medicamento:</label>
+		<select name="SupplierID" id="SupplierID">
+			@foreach (var f in Model.Suppliers)
+			{
+				<option value="@f.ID">@f.Name</option>
+			}
+		</select>
+		<div class="interaction-buttons">
+			<a type="button" id="btnback" href="/medicamentos">Voltar</a>
+			<button type="submit" id="btnConfirm">Salvar</button>
+		</div>
+	</form>
+</main>

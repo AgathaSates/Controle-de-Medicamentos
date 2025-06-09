@@ -5,7 +5,6 @@
 }
 
 .card-module {
-    animation: fadein 3s;
     border: 1px solid var(--border);
     border-radius: 15px;
     padding: 0 10px;
@@ -38,4 +37,32 @@
     .card-module .card-icon {
         text-align: center;
         width: 100%;
+    }
+
+.alert {
+    text-align: center;
+    color: #e74c3c;
+    margin: 25px 0;
+}
+
+.card-detail {
+    max-width: 80%;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 0px 30px 18px 30px;
+    background-color: var(--background-2);
+}
+
+    .card-detail h1, .card-detail h2, .card-detail h3 {
+        word-wrap: break-word;
+        text-align: center;
+        color: var(--primary-color);
+    }
+
+    .card-detail p {
+        word-wrap: break-word;
+        text-align: left;
+        font-size: 18px;
+        color: var(--text-color);
+        margin: 15px 0px
     }

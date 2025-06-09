@@ -39,6 +39,7 @@ nav {
     nav a {
         min-width: 100px;
     }
+
     nav > h2 {
         margin: 0;
     }
@@ -154,15 +155,21 @@ main {
         font-weight: bold;
     }
 
-#btn-Edit {
+#btn-stock {
     background-color: #27ae60;
     border: 1px solid #27ae60;
+}
+
+#btn-Edit {
+    background-color: #d9822b;
+    border: 1px solid #d9822b;
 }
 
 #btn-Delete {
     background-color: #e74c3c;
     border: 1px solid #e74c3c;
 }
+
 @media (max-width: 768px) {
     nav, header, main {
         padding: 1.3rem !important;

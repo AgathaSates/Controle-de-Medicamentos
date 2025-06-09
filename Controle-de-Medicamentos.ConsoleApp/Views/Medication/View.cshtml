@@ -1,0 +1,27 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model ViewMedicationViewModel;
+@{
+	ViewBag.Title = "Visualizar medicamento";
+	ViewBag.Header = "Visualizando medicamentos";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	@foreach (var p in Model.Registers)
+	{
+		<a href="/medicamentos/detalhes @p.Id">
+			<div class="card-module">
+				<h1>@p.Name</h1>
+				<p>Clique para ver todas as informações do medicamento</p>
+
+				@if (p.OutOfStock)
+				{
+					<div class="alert animate__animated animate__heartBeat animate__infinite">
+						<strong>Medicamento em falta!</strong>
+					</div>
+				}
+			</div>
+		</a>
+	}
+</main>
