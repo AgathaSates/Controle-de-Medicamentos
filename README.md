@@ -6,13 +6,11 @@
 
 # 💡 Índice
 
-- [Demonstração](#-demonstração)
 - [Introdução](#-introdução)
 - [Funcionalidades](#-funcionalidades)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Tecnologias Usadas](#-tecnologias-usadas)
 - [Commits e Convenções](#-commits-e-convenções)
-- [Como Usar](#-como-usar)
 - [Contribuidores](#-contribuidores)
 - [Mentores](#-mentores)
 - [Sobre o Projeto](#-sobre-o-projeto)
