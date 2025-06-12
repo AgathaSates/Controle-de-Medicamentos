@@ -30,9 +30,5 @@ public class MedicalPrescription : BaseEntity<MedicalPrescription>
         throw new NotImplementedException();
     }
 
-    public override string Validate()
-    {
-        throw new NotImplementedException();
-    }
 }
 

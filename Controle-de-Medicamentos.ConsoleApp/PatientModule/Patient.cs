@@ -26,30 +26,6 @@ namespace Controle_de_Medicamentos.ConsoleApp.PatientModule
             SUSCard = entity.SUSCard;
         }
 
-        public override string Validate()
-        {
-            string erros = "";
-
-            if (string.IsNullOrEmpty(Name))
-                erros += "O Campo 'Nome' é obrigatório\n";
-
-            if (Name.Length < 3 || Name.Length > 100)
-                erros += "'Nome' inválido! Deve ter entre 3 e 100 caracteres.\n";
-
-            if (string.IsNullOrEmpty(PhoneNumber))
-                erros += "O Campo 'Telefone' é obrigatório\n";
-
-            if (!Regex.IsMatch(PhoneNumber, @"^\(\d{2}\) \d{4,5}-\d{4}$"))
-                erros += "O 'Telefone' deve estar no formato (XX) XXXX-XXXX ou (XX) XXXXX-XXXX\n";
-
-            if (string.IsNullOrEmpty(SUSCard))
-                erros += "O Campo 'Cartão do SUS' é obrigatório\n";
-
-            if (SUSCard.Length != 15)
-                erros += "O 'Cartão do SUS' deve ter 15 dígitos\n";
-
-            return erros;
-        }
 
         /// <summary>
         /// Compara o número do cartão SUS do paciente atual com o de outro paciente, 

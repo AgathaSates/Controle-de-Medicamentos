@@ -1,0 +1,39 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreateCompleteExitRequisitionViewModel;
+@{
+	ViewBag.Titulo = "Cadastro de Requisição ";
+	ViewBag.Header = "Cadastrando Requisição de saída";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+    <form action="/requisicao/saida/completar-cadastro" method="post">
+        <h1>Seleção da Prescrição</h1>
+
+        <input type="hidden" name="FuncionarioId" value="@Model.EmployeeID" />
+        <input type="hidden" name="NomeFuncionario" value="@Model.EmployeeName" />
+        <input type="hidden" name="PacienteId" value="@Model.PatientId" />
+        <input type="hidden" name="NomePaciente" value="@Model.PatientName" />
+
+        <label>Nome do Funcionário:</label>
+        <h3>@Model.EmployeeName</h3>
+
+        <label>Nome do Paciente:</label>
+        <h3>@Model.PatientName</h3>
+
+        <label for="PescriptionId">Prescrições Disponíveis para o Paciente:</label>
+        <select name="PescriptionId" id="PescriptionId">
+            @foreach (var p in Model.prescription)
+            {
+                <option value="@p.Id">@p.ToString()</option>
+            }
+        </select>
+
+        <div class="interaction-buttons">
+            <a type="button" id="btnback" href="/requisicao/saida/visualizar">Voltar</a>
+            <button type="submit" id="btnConfirm">Confirmar</button>
+        </div>
+    </form>
+</main>

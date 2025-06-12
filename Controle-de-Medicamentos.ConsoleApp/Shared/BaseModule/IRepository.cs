@@ -7,6 +7,5 @@ public interface IRepository<T> where T : BaseEntity<T>
     void Remove(Guid id);
     List<T> GetAll();
     T? GetById(Guid id);
-    bool IsEntityValid(T entity, out string errors);
     int Count();
 }

@@ -24,26 +24,6 @@ public class Employee : BaseEntity<Employee>
         CPF = entity.CPF;
     }
 
-    public override string Validate()
-    {
-        string errors = "";
-
-        if (string.IsNullOrEmpty(Name))
-            errors += "O Campo \"Nome\" é obrigatório\n";
-        if (Name.Length < 3 || Name.Length > 100)
-            errors += "Nome inválido! Deve ter entre 3 e 100 caracteres.\n";
-        if (string.IsNullOrEmpty(PhoneNumber))
-            errors += "O Campo \"Telefone\" é obrigatório\n";
-        if (!Regex.IsMatch(PhoneNumber, @"^\(\d{2}\) \d{4,5}-\d{4}$"))
-            errors += "Telefone inválido! Deve estar no formato (DDD) XXXX-XXXX ou (DDD) XXXXX-XXXX\n";
-        if (string.IsNullOrEmpty(CPF))
-            errors += "O Campo \"CPF\" é obrigatório\n";
-        if (CPF.Length != 11)
-            errors += "CPF Inválido! Deve ter exatamente 11 números\n";
-
-        return errors;
-    }
-
     /// <summary>
     /// Verifica se o CPF informado já está em uso por outro funcionário.
     /// </summary>

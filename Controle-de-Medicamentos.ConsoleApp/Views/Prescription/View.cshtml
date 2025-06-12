@@ -1,1 +1,22 @@
-﻿
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model ViewPrescriptionsViewModel;
+@{
+	ViewBag.Title = "Visualizar Prescrição";
+	ViewBag.Header = "Visualizando Prescrições";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	@foreach (var p in Model.registers)
+	{
+		<div class="card-module">
+			<div class="card">
+					<h3>@p.Date.ToShortDateString()</h3>
+				<p><strong>CRM do Médico:</strong> @p.CRMMEdic</p>
+				<p><strong>Paciente:</strong> @p.Patient</p>
+				<p><strong>Medicamentos:</strong> @string.Join(", ", p.Medications)</p>
+			</div>
+		</div>
+	}
+</main>

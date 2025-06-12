@@ -1,0 +1,34 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreateExitRequisitionsViewModel
+@{
+	ViewBag.Title = "Requisições";
+	ViewBag.Header = "Criar Requisição de Saída";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	<form method="post" action="/requisicao/saida/cadastrar">
+		<label for="EmployeeID">Funcionário Requisitante:</label>
+		<select name="EmployeeID" id="EmployeeID">
+			@foreach (var f in Model.SelectEmployees)
+			{
+				<option value="@f.Id">@f.Name</option>
+			}
+		</select>
+
+		<label for="PatientID">Paciente Requisitante:</label>
+		<select name="PatientID" id="PatientID">
+			@foreach (var f in Model.SelectPatients)
+			{
+				<option value="@f.Id">@f.Name</option>
+			}
+		</select>
+
+		<div class="interaction-buttons">
+			<a type="button" id="btnback" href="/requisicao">Voltar</a>
+			<button type="submit" id="btnConfirm">Confirmar</button>
+		</div>
+	</form>
+</main>

@@ -57,7 +57,14 @@ select {
         border-radius: 4px;
         padding: 5px;
     }
+table {
+    padding: 0px 0px 17px 0px;
+}
 
+h2, h3, h1 {
+    color: var(--primary-color);
+    margin: 0px 0px 17px 0px;
+}
 #btnConfirm {
     display: flex;
     justify-content: center;
@@ -83,6 +90,34 @@ select {
     border-radius: 9px;
     background-color: #4F4F4F;
     color: var(--cor-texto);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+#btn-clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 35px;
+    border: 2px solid var(--primary-color);
+    border-radius: 9px;
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#btn-add-medication {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    border: 1px solid var(--primary-color);
+    border-radius: 9px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     cursor: pointer;
     font-size: 16px;
 }
@@ -143,6 +178,19 @@ select {
         border: 1px solid #e74c3c;
         background-color: #e74c3c;
     }
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+.medication-field {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

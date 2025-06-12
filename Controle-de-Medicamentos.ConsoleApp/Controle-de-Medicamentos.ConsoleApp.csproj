@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="PatientModule\" />
-    <Folder Include="Views\Requisitions\" />
   </ItemGroup>
 
   <ItemGroup>

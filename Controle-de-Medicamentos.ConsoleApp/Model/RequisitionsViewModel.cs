@@ -31,7 +31,7 @@ public class CreateEntryRequisitionsViewModel
 
 public class CreateExitRequisitionsViewModel
 {
-    public Guid FuncionarioID { get; set; }
+    public Guid EmployeeID { get; set; }
     public Guid PatientID { get; set; }
     public List<SelectEmployeeVieModel> SelectEmployees { get; set; }
     public List<SelectPatientViewModel> SelectPatients { get; set; }
@@ -89,21 +89,21 @@ public class CreateCompleteExitRequisitionViewModel
 
 public class ViewRequisitionViewModel 
 {
-    public List<DetailsRequisitionVieModel> registers { get;}
+    public List<DetailsRequisitionViewModel> Registers { get; set; }
 
     public ViewRequisitionViewModel(List<ExitRequest> requests) 
     {
-        registers = [];
+        Registers = new List<DetailsRequisitionViewModel>();
 
         foreach (var r in requests) 
         {
             var detailsVM = r.DetailVM();
-            registers.Add(detailsVM);
+            Registers.Add(detailsVM);
         }
     }
 }
 
-public class DetailsRequisitionVieModel 
+public class DetailsRequisitionViewModel 
 {
     public Guid Id { get; set; }
     public string Employee { get; set; }
@@ -111,7 +111,7 @@ public class DetailsRequisitionVieModel
     public DateTime Date { get; set; }
     public List<string> Medications { get; set; }
 
-    public DetailsRequisitionVieModel(Guid id, string employee, string patient, DateTime date, List<PrescriptionMedication> medications)
+    public DetailsRequisitionViewModel(Guid id, string employee, string patient, DateTime date, List<PrescriptionMedication> medications)
     {
         Id = id;
         Employee = employee;

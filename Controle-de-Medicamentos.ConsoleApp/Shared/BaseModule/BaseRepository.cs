@@ -83,21 +83,6 @@ public abstract class BaseRepository<T> where T : BaseEntity<T>
     }
 
     /// <summary>
-    /// Verificar se a Entidade é válida.<br/>
-    /// Acrescenta a uma string os motivos pelos quais a entidade não pôde ser validada.<br/>
-    /// </summary>
-    /// <param name="entity">Entidade a ser validada.</param>
-    /// <param name="errors">Retorna uma string com os erros encontrados, caso existam para exibir ao usuário</param>
-    /// <returns>Retorna <c>true</c> se a entidade for válida; caso contrário, <c>false</c>.</returns>
-    public virtual bool IsEntityValid(T entity, out string errors)
-    {
-        errors = entity.Validate();
-        if (string.IsNullOrEmpty(errors))
-            return true;
-        return false;
-    }
-
-    /// <summary>
     /// Conta os registros na lista.<br/>
     /// </summary>
     /// <returns> Retorna o número de registros na lista.</returns>

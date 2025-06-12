@@ -11,17 +11,5 @@ namespace Controle_de_Medicamentos.ConsoleApp.PatientModule
         {
             return Context.Patients;
         }
-
-        public override bool IsEntityValid(Patient entity, out string errors)
-        {
-            errors = entity.Validate();
-
-            if(entity.IsSameSUSCard(GetAll().FirstOrDefault(p=>p.IsSameSUSCard(entity))))
-                errors += "Já existe um paciente com este cartão do SUS";
-
-            if (string.IsNullOrEmpty(errors))
-                return true;
-            return false;
-        }
     }
 }

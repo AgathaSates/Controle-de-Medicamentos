@@ -1,0 +1,31 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model ViewRequisitionViewModel;
+@{
+	ViewBag.Title = "Requisições";
+	ViewBag.Header = "Visualizando Requisições";
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+
+<main class="main-module animate__animated animate__zoomInDown">
+	@if (!Model.Registers.Any())
+	{
+		<p>Nenhuma requisição encontrada.</p>
+	}
+
+	else
+	{
+		@foreach (var r in Model.Registers)
+		{
+			<div class="card-module">
+				<h3>@r.Date.ToShortDateString()</h3>
+
+				<p><strong>Funcionário Requisitante:</strong> @r.Employee</p>
+				<p><strong>Paciente:</strong> @r.Patient</p>
+				<p><strong>Medicamentos:</strong> @string.Join(", ", r.Medications)</p>
+
+			</div>
+		}
+	}
+	
+</main>

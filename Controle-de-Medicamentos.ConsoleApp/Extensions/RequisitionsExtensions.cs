@@ -45,8 +45,8 @@ public static class RequisitionsExtensions
         return new ExitRequest(employee, medicalPrescription);
     }
 
-    public static DetailsRequisitionVieModel DetailVM(this ExitRequest request) 
+    public static DetailsRequisitionViewModel DetailVM(this ExitRequest request) 
     {
-        return new DetailsRequisitionVieModel(request.Id, request.Employee.Name, request.MedicalPrescription.Patient.Name, request.Date, request.MedicalPrescription.Medications);
+        return new DetailsRequisitionViewModel(request.Id, request.Employee.Name, request.MedicalPrescription.Patient.Name, request.Date, request.MedicalPrescription.Medications);
     }
 }

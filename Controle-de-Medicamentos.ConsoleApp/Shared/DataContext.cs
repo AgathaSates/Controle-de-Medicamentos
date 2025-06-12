@@ -12,8 +12,8 @@ public class DataContext
 {
     public List<Medication> Medications { get; set; }
     public List<Employee> Employees { get; set; }
-    public List<EntryRequest> InRequests { get; set; }
-    public List<ExitRequest> OutRequests { get; set; }  
+    public List<EntryRequest> entryRequisitions { get; set; }
+    public List<ExitRequest> exitRequisitions { get; set; }  
     public List<Supplier> Suppliers { get; set; } 
     public List<Patient> Patients { get;  set; }
     public List<MedicalPrescription> MedicalPrescriptions { get; set; }
@@ -33,8 +33,8 @@ public class DataContext
     {
         Medications = new List<Medication>();
         Employees = new List<Employee>();
-        InRequests = new List<EntryRequest>();
-        OutRequests = new List<ExitRequest>();
+        entryRequisitions = new List<EntryRequest>();
+        exitRequisitions = new List<ExitRequest>();
         Suppliers = new List<Supplier>();
         Patients = new List<Patient>();
         MedicalPrescriptions = new List<MedicalPrescription>();
@@ -102,8 +102,8 @@ public class DataContext
 
         Medications = savedContext.Medications;
         Employees = savedContext.Employees;
-        InRequests = savedContext.InRequests;
-        OutRequests = savedContext.OutRequests;
+        entryRequisitions = savedContext.entryRequisitions;
+        exitRequisitions = savedContext.exitRequisitions;
         Suppliers = savedContext.Suppliers;
         Patients = savedContext.Patients;
         MedicalPrescriptions = savedContext.MedicalPrescriptions;

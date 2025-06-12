@@ -146,10 +146,10 @@ main {
         align-items: center;
         width: 90px;
         height: 30px;
-        border: 1px solid var(--cor-principal);
+        border: 1px solid var(--primary-color);
         border-radius: 9px;
-        background-color: var(--cor-principal);
-        color: var(--cor-texto);
+        background-color: var(--primary-color);
+        color: var(--text-color);
         cursor: pointer;
         font-size: 16px;
         font-weight: bold;

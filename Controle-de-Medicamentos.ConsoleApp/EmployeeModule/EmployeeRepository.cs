@@ -10,15 +10,4 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
         return Context.Employees;
     }
-
-    public override bool IsEntityValid(Employee entity, out string errors)
-    {
-        errors = entity.Validate();
-        if (entity.IsSameCPF(GetAll().FirstOrDefault(e => e.IsSameCPF(entity))))
-            errors += "Já existe um funcionário com este CPF";
-
-        if (string.IsNullOrEmpty(errors))
-            return true;
-        return false;
-    }
 }

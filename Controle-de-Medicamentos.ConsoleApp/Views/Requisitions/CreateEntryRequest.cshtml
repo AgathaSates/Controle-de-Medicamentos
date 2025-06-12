@@ -1,0 +1,36 @@
+﻿@using Controle_de_Medicamentos.ConsoleApp.Model
+@model CreateEntryRequisitionsViewModel;
+@{
+    ViewBag.Titulo = "Cadastro de Requisição ";
+    ViewBag.Header = "Cadastrando Requisição de Entrada";
+    string MedicationName = ViewBag.MedicationName;
+}
+
+<link href="~/simple-modules.css" rel="stylesheet" />
+<link href="~/Form.css" rel="stylesheet" />
+
+<main class="main-module">
+	<form action="/requisicao/entrada/@Model.MedicationId" method="post">
+        <label for="MedicationId">Id do Medicamento:</label>
+        <input type="text" name="MedicationId" value="@Model.MedicationId" readonly disabled />
+
+        <label for="nome">Nome do Medicamento:</label>
+        <h2>@MedicationName</h2>
+
+        <label for="quantity">Quantidade Requisitada:</label>
+        <input type="number" name="quantity" value="@Model.Quantity" />
+
+        <label for="employeeID">Funcionário Requisitante:</label>
+        <select name="employeeID" id="EmployeeID">
+            @foreach (var f in Model.Employees)
+            {
+                <option value="@f.Id">@f.Name</option>
+            }
+        </select>
+
+        <div class="interaction-buttons">
+            <a type="button" id="btnback" href="/medicamentos/visualizar">Voltar</a>
+            <button type="submit" id="btnConfirm">Confirmar</button>
+        </div>
+	</form>
+</main>

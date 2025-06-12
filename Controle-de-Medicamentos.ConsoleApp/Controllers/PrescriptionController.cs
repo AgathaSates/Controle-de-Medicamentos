@@ -38,9 +38,9 @@ public class PrescriptionController : Controller
 
         CreatePrescriptionViewModel createVM;
 
-        var saveprescription = TempData.Peek("Prescricao");
+        var saveprescription = TempData.Peek("prescricao");
 
-        if (saveprescription is null && saveprescription is string jsonString)
+        if (saveprescription is not null && saveprescription is string jsonString)
         {
             createVM = JsonSerializer.Deserialize<CreatePrescriptionViewModel>(jsonString)!;
 
@@ -61,7 +61,7 @@ public class PrescriptionController : Controller
         var patients = patientRepository.GetAll();
         var medications = medicationRepository.GetAll();
 
-        if (TempData.TryGetValue("Prescricao", out var value) && value is string jsonString)
+        if (TempData.TryGetValue("prescricao", out var value) && value is string jsonString)
         {
             var lastVm = JsonSerializer.Deserialize<CreatePrescriptionViewModel>(jsonString)!;
 
@@ -89,14 +89,14 @@ public class PrescriptionController : Controller
 
             createVM.medications.Add(detailsMedication);
 
-            TempData["Prescricao"] = JsonSerializer.Serialize(createVM);
+            TempData["prescricao"] = JsonSerializer.Serialize(createVM);
 
             return RedirectToAction("Create");
         }
 
         else if (submit == "limpar")
         {
-            TempData.Remove("Prescricao");
+            TempData.Remove("prescricao");
 
             return RedirectToAction("Create");
         }
@@ -107,9 +107,9 @@ public class PrescriptionController : Controller
 
             medicalPrescriptionRepository.Add(newregister);
 
-            NotificationViewModel notification = new NotificationViewModel("Registrado", "Prescrição","","cadastrado", "/prescricao");
+            NotificationViewModel notification = new NotificationViewModel("Registrado", "Prescrição", "Médica", "cadastrado", "/prescricao");
 
-            TempData.Remove("Prescricao");
+            TempData.Remove("prescricao");
 
             return View("Notification", notification);
         }

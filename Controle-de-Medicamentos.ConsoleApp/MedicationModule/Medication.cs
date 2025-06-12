@@ -1,21 +1,46 @@
-﻿using Controle_de_Medicamentos.ConsoleApp.Shared.BaseModule;
+﻿using Controle_de_Medicamentos.ConsoleApp.RequisitionModule;
+using Controle_de_Medicamentos.ConsoleApp.Shared.BaseModule;
 using Controle_de_Medicamentos.ConsoleApp.SupplierModule;
 namespace Controle_de_Medicamentos.ConsoleApp.MedicationModule;
 
 public class Medication : BaseEntity<Medication>
 {
-    public string Name {get; set; }
+    public string Name { get; set; }
     public string Description { get; set; }
-    public int Quantity { get; set; }
     public Supplier Supplier { get; set; }
+    public List<EntryRequest> EntryRequests { get; set; }
+    public List<ExitRequest> ExitRequest { get; set; }
+    public int Quantity
+    {
+        get
+        {
+            int quantity = 0;
+            foreach (var entry in EntryRequests)
+            {
+                quantity += entry.Quantity;
+            }
 
-    public Medication(){}
+            foreach (var exit in ExitRequest)
+            {
+                foreach (var med in exit.MedicalPrescription.Medications)
+                {
+                    quantity -= med.Quantity;
+                }
+            }
+            return quantity;
+        }
+    }
+
+    public Medication() { }
 
     public Medication(string name, string description, Supplier supplier)
     {
         Name = name;
         Description = description;
         Supplier = supplier;
+        ExitRequest = new List<ExitRequest>();
+        EntryRequests = new List<EntryRequest>();
+
     }
 
     public override void UpdateEntity(Medication entity)
@@ -25,30 +50,6 @@ public class Medication : BaseEntity<Medication>
         Supplier = entity.Supplier;
     }
 
-    public override string Validate()
-    {
-        string erros = "";
-
-        if (string.IsNullOrEmpty(Name))
-            erros += "O Campo 'Nome' é obrigatório\n";
-
-        if (Name.Length < 3 || Name.Length > 100)
-            erros += "'Nome' inválido! Deve ter entre 3 e 100 caracteres.\n";
-
-        if (string.IsNullOrEmpty(Description))
-            erros += "O Campo 'Descrição' é obrigatório\n";
-
-        if (Description.Length < 5 || Description.Length > 255)
-            erros += "'Descrição' inválida! Deve ter entre 5 e 255 caracteres.\n";
-
-        if (Quantity < 0)
-            erros += "'Quantidade' inválida! Deve ser um número positivo.\n";
-
-        if (Supplier == null)
-            erros += "O Campo 'Fornecedor' é obrigatório\n";
-
-        return erros;
-    }
 
     /// <summary>
     /// Atualiza a quantidade em estoque do medicamento, somando o estoque atual com o valor informado.
@@ -57,9 +58,12 @@ public class Medication : BaseEntity<Medication>
     /// <remarks>
     /// Este método sobrescreve a quantidade atual.
     /// </remarks>
-    public void UpdateQuantity(int quantity)
+    public void UpdateQuantity(EntryRequest entryRequest)
     {
-        Quantity += quantity;
+        if (!EntryRequests.Contains(entryRequest))
+        {
+            EntryRequests.Add(entryRequest);
+        }
     }
 
     /// <summary>
@@ -69,9 +73,12 @@ public class Medication : BaseEntity<Medication>
     /// <remarks>
     /// Este método sobrescreve a quantidade atual.
     /// </remarks>
-    public void SubstractQuantity(int quantity)
+    public void SubstractQuantity(ExitRequest exitRequest)
     {
-        Quantity -= quantity;
+        if (!ExitRequest.Contains(exitRequest))
+        {
+            ExitRequest.Add(exitRequest);
+        }
     }
 
     /// <summary>
