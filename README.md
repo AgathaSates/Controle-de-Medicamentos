@@ -3,9 +3,6 @@
 
 ![banner](https://i.imgur.com/vdeYeV6.png)
 
-# 📌 Demonstração
- Navegações e cadastros
->![Demonstração do Projeto]()
 
 # 💡 Índice
 
@@ -24,17 +21,13 @@
 
 # 📚 Introdução
 
-O **Controle de Medicamentos** é uma aplicação de console desenvolvida em C# com .NET 8.0, focada na gestão de medicamentos e pacientes. O objetivo é permitir o controle de entrada e saída de medicamentos, vinculando-os a pacientes cadastrados, de maneira clara e persistente.
+O **Controle de Medicamentos** é uma aplicação de  desenvolvida em C# com .NET 8.0, focada na gestão de medicamentos e pacientes. O objetivo é permitir o controle de entrada e saída de medicamentos, vinculando-os a pacientes cadastrados, de maneira clara e persistente.
 
 
 # ✨ Funcionalidades
 
 - 🗂️ **Gerenciamento Completo de Registros** – Cadastro, edição, exclusão e listagem de pacientes, medicamentos, funcionários, fornecedores, requisições e prescrições médicas.
 - 📥📤 **Controle de Estoque** – Registra entradas e saídas de medicamentos com rastreamento por funcionário e paciente.
-- 🧾 **Validações de Entrada** – Campos obrigatórios, tipos e formatos verificados para garantir consistência dos dados.
-- 📊 **Listagens com Destaques Visuais** – Interface colorida destaca status como “Em falta”, “Ok”, “Aberta” ou “Expirada”.
-
-
 
 ## 🧱 Estrutura do Projeto
 
@@ -42,7 +35,6 @@ O projeto está organizado em **módulos**, cada um responsável por uma funcion
 
 - `Entidade` – Classe que representa o dado principal.
 - `Repositório` – Responsável pela persistência e manipulação dos dados em arquivos JSON.
-- `Tela` – Interface de interação no console com o usuário.
 
 Há também um **módulo base** que centraliza comportamentos comuns, permitindo reutilização e padronização entre os módulos.
 
@@ -69,40 +61,6 @@ Essa divisão modular, com herança de comportamentos comuns, torna o projeto **
 
 Utilizamos [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para padronizar as mensagens de commit.
 
-# 💾 Como Usar
-
-## Requisitos
-
-- .NET SDK (recomendado .NET 8.0 ou superior) para compilação e execução do projeto.
-
-### 1. Clone o repositório.
- 
-```
-git clone https://github.com/Code-Oblivion/Controle-de-Medicamentos.git
-```
-### 2. Abra o terminal ou o prompt de comando e navegue até a pasta raiz
-
-```
-cd Controle-de-Medicamentos
-```
-
-### 3. Utilize o comando abaixo para restaurar as dependências do projeto.
-
-```
-dotnet restore
-```
-
-### 4. Navegue até a pasta do projeto
-
-```
-cd Controle-de-Medicamentos.ConsoleApp
-```
-
-### 5. Execute o projeto
-
-```
-dotnet run
-```
 
 # 👥 Contribuidores
 
